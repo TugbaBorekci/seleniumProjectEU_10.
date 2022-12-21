@@ -26,10 +26,12 @@ public class T1_CydeoVerifications {
         }else{
             System.out.println("URL verification FAILED!!!");
         }
-
-
         //4. Verify title:
         //Expected: Practice
+
+
+
+
     }
 
 
