@@ -35,7 +35,6 @@ public class T2_Linktext_Practice {
         } else {
             System.out.println("Title verification FAILED!!!");
         }
-
         //5. Go back to home page by using the .back();
         driver.navigate().back();
         //6. Verify title equals:
