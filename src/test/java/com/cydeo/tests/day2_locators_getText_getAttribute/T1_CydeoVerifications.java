@@ -14,10 +14,20 @@ public class T1_CydeoVerifications {
         driver.manage().window().maximize();
 
         //2. Go to https://practice.cydeo.com
-
+        driver.navigate().to("https://practice.cydeo.com");
 
         //3. Verify Url contains
         //Expected: cydeo
+        String expectedURL = "cydeo";
+        String actualURL =driver.getCurrentUrl();
+
+        if (actualURL.contains(expectedURL)){
+            System.out.println("URL verification PASSED!");
+        }else{
+            System.out.println("URL verification FAILED!!!");
+        }
+
+
         //4. Verify title:
         //Expected: Practice
     }
