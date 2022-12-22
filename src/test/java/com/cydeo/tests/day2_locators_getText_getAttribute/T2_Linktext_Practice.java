@@ -46,7 +46,6 @@ public class T2_Linktext_Practice {
             System.out.println("Title verification PASSED!");
         } else {
             System.out.println("Title verification FAILED!!!");
-
         }
     }
 }
