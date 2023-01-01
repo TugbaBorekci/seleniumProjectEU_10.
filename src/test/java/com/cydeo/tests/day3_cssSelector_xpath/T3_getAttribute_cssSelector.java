@@ -42,7 +42,5 @@ public class T3_getAttribute_cssSelector {
             System.out.println("Log In the button text verification is PASSED!");
         }
 
-
-
     }
 }
