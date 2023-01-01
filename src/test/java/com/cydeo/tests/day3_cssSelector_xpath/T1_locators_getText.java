@@ -1,4 +1,4 @@
-package com.cydeo.tests.cssSelector_xpath;
+package com.cydeo.tests.day3_cssSelector_xpath;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
