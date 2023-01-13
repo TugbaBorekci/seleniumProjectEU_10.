@@ -1,0 +1,13 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="NewClassNamingConvention" enabled="true" level="WARNING" enabled_by_default="true">
+      <extension name="AbstractClassNamingConvention" enabled="true" />
+      <extension name="AnnotationNamingConvention" enabled="true" />
+      <extension name="ClassNamingConvention" enabled="true" />
+      <extension name="EnumeratedClassNamingConvention" enabled="true" />
+      <extension name="InterfaceNamingConvention" enabled="true" />
+      <extension name="TestSuiteNamingConvention" enabled="true" />
+    </inspection_tool>
+  </profile>
+</component>
