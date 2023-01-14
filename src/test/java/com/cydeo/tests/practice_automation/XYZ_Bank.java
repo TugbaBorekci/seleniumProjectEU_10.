@@ -86,6 +86,8 @@ public class XYZ_Bank {
         Alert alert = driver.switchTo().alert();
         alert.accept();
 
+        driver.close();
+
     }
 
 
