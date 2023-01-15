@@ -11,27 +11,27 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class T1_WebTable_Order_Verify {
+WebDriver driver;
 
-    public WebDriver driver;
 
-    //TC #1: Web table practice
     @BeforeMethod
-    public void setupMethod() {
+    public void setupMethod(){
+
         driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.get("https://practice.cydeo.com/web-tables");
+
     }
 
     @Test
-    public void order_name_verify_test() {
-        //1. Go to: https://practice.cydeo.com/web-tables
-        driver.get("https://practice.cydeo.com/web-tables");
+    public void order_name_verify_test(){
 
-        //Locate the cell Bob Martin text in it
+        //Locate the cell that has Bob Martin text in it.
         WebElement bobMartinCell =
                 driver.findElement(By.xpath("//table[@id='ctl00_MainContent_orderGrid']//td[.='Bob Martin']"));
-        System.out.println("bobMartinCell.getText() = " + bobMartinCell.getText());
 
+        //System.out.println("bobMartinCell.getText() = " + bobMartinCell.getText());
 
         //2. Verify Bob’s name is listed as expected.
         //Expected: “Bob Martin”
@@ -43,14 +43,35 @@ public class T1_WebTable_Order_Verify {
         //3. Verify Bob Martin’s order date is as expected
         //Expected: 12/31/2021
 
-        //alternative locator to bobMartinDateCell = "//td[.='Bob Martin']/../td[5] yada bu sekilde yapabiliriz
-        WebElement bobMartinDateCell=
-                driver.findElement(By.xpath(("//table[@id='ctl00_MainContent_orderGrid']//td[.='Bob Martin']/following-sibling::td[3]")));
+        // alternative locator to bobMartinDateCell = "//td[.='Bob Martin']/../td[5]"
+        WebElement bobMartinDateCell =
+                driver.findElement(By.xpath("//table[@id='ctl00_MainContent_orderGrid']//td[.='Bob Martin']/following-sibling::td[3]"));
 
         String expectedBobDate = "12/31/2021";
         String actualBobDate = bobMartinDateCell.getText();
 
         Assert.assertEquals(actualBobDate, expectedBobDate);
+
+    }
+
+    //We use the utility method we created.
+    @Test
+    public void test2(){
+
+        String costumerOrderDate1 = T2_WebTableUtils.returnOrderDate(driver, "Alexandra Gray");
+        System.out.println("costumerOrderDate1 = " + costumerOrderDate1);
+
+
+        String costumerOrderDate2 = T2_WebTableUtils.returnOrderDate(driver, "John Doe");
+        System.out.println("costumerOrderDate2 = " + costumerOrderDate2);
+
+    }
+
+    //Using T2-WebTableUtils.orderVerify(); method
+    @Test
+    public void test3(){
+
+        T2_WebTableUtils.orderVerify(driver, "Bart Fisher", "01/16/2021");
 
     }
 }
