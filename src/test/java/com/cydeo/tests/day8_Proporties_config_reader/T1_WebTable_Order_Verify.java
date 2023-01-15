@@ -1,6 +1,7 @@
 package com.cydeo.tests.day8_Proporties_config_reader;
 
 import com.cydeo.utulities.WebDriverFactory;
+import com.cydeo.utulities.WebTableUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -58,11 +59,11 @@ WebDriver driver;
     @Test
     public void test2(){
 
-        String costumerOrderDate1 = T2_WebTableUtils.returnOrderDate(driver, "Alexandra Gray");
+        String costumerOrderDate1 = WebTableUtils.returnOrderDate(driver, "Alexandra Gray");
         System.out.println("costumerOrderDate1 = " + costumerOrderDate1);
 
 
-        String costumerOrderDate2 = T2_WebTableUtils.returnOrderDate(driver, "John Doe");
+        String costumerOrderDate2 = WebTableUtils.returnOrderDate(driver, "John Doe");
         System.out.println("costumerOrderDate2 = " + costumerOrderDate2);
 
     }
@@ -71,7 +72,7 @@ WebDriver driver;
     @Test
     public void test3(){
 
-        T2_WebTableUtils.orderVerify(driver, "Bart Fisher", "01/16/2021");
+      WebTableUtils.orderVerify(driver, "Bart Fisher", "01/16/2021");
 
     }
 }

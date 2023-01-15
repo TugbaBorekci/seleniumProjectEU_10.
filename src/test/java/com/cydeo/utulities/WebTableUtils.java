@@ -1,12 +1,11 @@
-package com.cydeo.tests.day8_Proporties_config_reader;
+package com.cydeo.utulities;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
-public class T2_WebTableUtils {
-
+public class WebTableUtils {
     //Method #1 info:
     //• Name: returnOrderDate ()
     //• Return type: String
