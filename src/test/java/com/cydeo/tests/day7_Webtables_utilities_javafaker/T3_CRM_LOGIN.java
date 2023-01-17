@@ -1,34 +1,22 @@
 package com.cydeo.tests.day7_Webtables_utilities_javafaker;
 
+import com.cydeo.tests.base.TestBase;
 import com.cydeo.utulities.BrowserUtils;
-import com.cydeo.utulities.WebDriverFactory;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.util.concurrent.TimeUnit;
 
 /*
 This method will long in with helpdesk@cydeo.com user when it is called
  */
 
-public class T3_CRM_LOGIN {
+public class T3_CRM_LOGIN extends TestBase {
 
-    WebDriver driver;
 
-    @BeforeMethod
-    public void setupMethod() {
-        driver = WebDriverFactory.getDriver("chrome");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-    }
 
     //TC #3: Login scenario
     @Test
-    public void crm_login_test() {
+    public void crm_login_test(){
 
         //2. Go to : https://login1.nextbasecrm.com/
         driver.get("https://login1.nextbasecrm.com/");
@@ -50,25 +38,40 @@ public class T3_CRM_LOGIN {
 
         //6. Verify title is as expected:
         //Expected: Portal
-        BrowserUtils.sleep(2);
         BrowserUtils.verifyTitle(driver, "My tasks");
-
 
     }
 
     @Test
-    public void crm_login_test_3() {
+    public void crm_login_test_2(){
+
+        //2. Go to : https://login1.nextbasecrm.com/
+        driver.get("https://login1.nextbasecrm.com/");
+
+        //Calling my utility method to login helpdesk1
+        CRM_Utilities.crm_login(driver);
+
+        //6. Verify title is as expected:
+        //Expected: Portal
+        BrowserUtils.verifyTitle(driver, "My tasks");
+
+    }
+
+
+    @Test
+    public void crm_login_test_3(){
 
         //2. Go to : https://login1.nextbasecrm.com/
         driver.get("https://login1.nextbasecrm.com/");
 
         //Calling my utility method to login helpdesk
-        CRM_Utilities.crm_login(driver, "helpdesk2@cybertekschool.com", "UserUser");
+        CRM_Utilities.crm_login(driver, "helpdesk2@cybertekschool.com", "UserUser" );
 
         //6. Verify title is as expected:
         //Expected: Portal
-        BrowserUtils.sleep(2);
+        //BrowserUtils.sleep(2);
         BrowserUtils.verifyTitle(driver, "Portal");
 
     }
+
 }
