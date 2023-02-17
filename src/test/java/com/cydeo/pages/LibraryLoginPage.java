@@ -16,7 +16,23 @@ public class LibraryLoginPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
+    LibraryLoginPage libraryLoginPage = new LibraryLoginPage();
+
     //#2- use @FindBy annotation to locate web elements
-    @FindBy(xpath = "//input[@id='inputEmail']"  )
+    @FindBy(xpath = "//input[@id='inputEmail']")
     public WebElement inputUsername;
+
+    @FindBy(id = "inputPassword")
+    public WebElement inputPassword;
+
+    @FindBy(xpath = "//button[.='Sign in']")
+    public WebElement signInButton;
+
+    @FindBy(xpath = "//div[@id='inputEmail-error']")
+    public WebElement fieldRequiredErrorMessage;
+
+
+
+
+
 }
