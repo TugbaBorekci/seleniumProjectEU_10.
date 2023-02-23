@@ -16,7 +16,7 @@ public class LibraryLoginPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    LibraryLoginPage libraryLoginPage = new LibraryLoginPage();
+    //LibraryLoginPage libraryLoginPage = new LibraryLoginPage(); yukarida public LibraryLoginPage() bunu kullandigimiz icin bu sekilde yazmaya gerek kalmadi this keyword ile burayi kullaniyoruz
 
     //#2- use @FindBy annotation to locate web elements
     @FindBy(xpath = "//input[@id='inputEmail']")
@@ -28,8 +28,15 @@ public class LibraryLoginPage {
     @FindBy(xpath = "//button[.='Sign in']")
     public WebElement signInButton;
 
-    @FindBy(xpath = "//div[@id='inputEmail-error']")
+    @FindBy(xpath = "//[.='This field is required.']/div")
     public WebElement fieldRequiredErrorMessage;
+
+    @FindBy(xpath = "//div[.='Please enter a valid email address.']/div" )
+    public WebElement enterValidEmailErrorMessage;
+
+    @FindBy(xpath = "//div[.='Sorry, Wrong Email or Password']")
+    public WebElement wrongEmailOrPasswordErrorMessage;
+
 
 
 
